@@ -6,11 +6,21 @@ class ProductItem extends Component {
     /**
      * Using dynamic styling.
      */
-    getAvailableStyle(isAvailable) {
+    getAvailableStyle = (isAvailable) => {
         return {
             color:isAvailable ? 'green' : 'red'
         };
-    }
+    };
+
+    addToCard = (e) => {
+        const product = this.props.product;
+        alert(`${product.name} [code: ${product.id}] is added to your list.`)
+    };
+
+    buyNow = (e) => {
+        const product = this.props.product;
+        alert(`You brought the ${product.name} [code: ${product.id}].`)
+    };
 
     render() {
         const product = this.props.product;
@@ -40,16 +50,22 @@ class ProductItem extends Component {
                 <div style={{
                     margin: '4px'
                 }}>
-                    <button style={{
-                        backgroundColor: 'blue',
-                        color: 'white',
-                        margin: '2px'
-                    }}>Add to Card</button>
-                    <button style={{
-                        backgroundColor: 'orange',
-                        color: 'blue',
-                        margin: '2px'
-                    }}>Buy Now</button>
+                    <button
+                        style={{
+                            backgroundColor: 'blue',
+                            color: 'white',
+                            margin: '2px'
+                        }}
+                        onClick={this.addToCard}
+                    >Add to Card</button>
+                    <button
+                        style={{
+                            backgroundColor: 'orange',
+                            color: 'blue',
+                            margin: '2px'
+                        }}
+                        onClick={this.buyNow}
+                    >Buy Now</button>
                 </div>
             </div>
         )
