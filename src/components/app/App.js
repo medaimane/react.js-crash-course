@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
-import Products from '../products/Products';
+import ProductsList from '../products-list/ProductsList';
 
 class App extends Component {
     state = {
@@ -50,7 +49,7 @@ class App extends Component {
                 </header>
                 <div>
                     <h2>Products list</h2>
-                    <Products products={this.state.products}/>
+                    <ProductsList products={this.state.products}/>
                 </div>
             </main>
         );
