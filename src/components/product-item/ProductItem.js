@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-class ProductsItem extends Component {
+class ProductItem extends Component {
     render() {
         const product = this.props.product;
         return (
-            <div key={product.id} className="ProductCard">
+            <div className="ProductCard">
                 <h3 className="ProductName">{this.props.product.name}</h3>
                 <p>{product.description}</p>
                 <div>
@@ -17,4 +18,8 @@ class ProductsItem extends Component {
     }
 }
 
-export default ProductsItem;
+ProductItem.propTypes = {
+    product: PropTypes.object.isRequired
+};
+
+export default ProductItem;
