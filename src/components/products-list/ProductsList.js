@@ -11,6 +11,7 @@ class ProductsList extends Component {
                     product={product}
                     addToCard={this.props.addToCard.bind(this)}
                     buyNow={this.props.buyNow.bind(this)}
+                    removeProduct={this.props.removeProduct.bind(this)}
                 />
             ));
     }

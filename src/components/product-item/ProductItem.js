@@ -39,14 +39,27 @@ class ProductItem extends Component {
                 margin: '5px',
                 padding: '5px'
             }}>
-                <h3 style={{
-                    padding: '3px',
-                    fontFamily: 'sans-serif',
-                    fontSize: '20px',
-                    textDecoration: 'none',
-                    textAlign: 'center',
-                    backgroundImage: imageUrl
-                }}>{name}</h3>
+                <div>
+                    <h3 style={{
+                        padding: '3px',
+                        fontFamily: 'sans-serif',
+                        fontSize: '20px',
+                        textDecoration: 'none',
+                        textAlign: 'center',
+                        backgroundImage: imageUrl
+                    }}>{name}</h3>
+                    <button
+                        style={{
+                            backgroundColor: 'red',
+                            color: 'white',
+                            margin: '2px',
+                            float: 'right'
+                        }}
+                        onClick={
+                            this.props.removeProduct.bind(this, id)
+                        }
+                    >remove item</button>
+                </div>
                 <p style={styles.description}>{description}</p>
                 <div style={styles.details}>
                     <p>Price: {price}</p>

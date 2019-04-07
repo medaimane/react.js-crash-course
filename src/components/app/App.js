@@ -82,6 +82,19 @@ class App extends Component {
         });
     };
 
+    removeProduct = (id) => {
+        this.setState({
+            products: this.state.products.filter(
+                product =>  product.id !== id
+            )
+        });
+    };
+
+    /**
+     * The only required
+     * react component
+     * lifecycle
+     */
     render() {
         return (
             <main>
@@ -94,6 +107,7 @@ class App extends Component {
                         products={this.state.products}
                         addToCard={this.addToCard}
                         buyNow={this.buyNow}
+                        removeProduct={this.removeProduct}
                     />
                 </div>
             </main>
