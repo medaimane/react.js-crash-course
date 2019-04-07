@@ -8,7 +8,7 @@ export default class ProductsService {
         return res.data;
     }
 
-    static async addProduct({ name, description, price}) {
+    static async addProduct({name, description, price}) {
         const res = await axios.post(`${this.apiUrl}/products`, {
             name,
             description,
@@ -20,5 +20,9 @@ export default class ProductsService {
             imageUrl: '',
         });
         return res.data;
+    }
+
+    static async removeProduct(id) {
+        await axios.delete(`${this.apiUrl}/products/${id}`);
     }
 }

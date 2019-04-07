@@ -40,11 +40,13 @@ class App extends Component {
         });
     };
 
-    removeProduct = (id) => {
+    removeProduct = async (id) => {
+        await ProductsService.removeProduct(id)
         this.setState({
-            products: [...this.state.products.filter(
-                product =>  product.id !== id
-            )]
+            products: [
+                ...this.state.products.filter(
+                    product =>  product.id !== id
+                )]
         });
     };
 
