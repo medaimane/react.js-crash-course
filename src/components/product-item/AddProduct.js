@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import PropTypes from 'prop-types';
 
 class AddProduct extends Component {
     state = {
@@ -92,6 +93,11 @@ class AddProduct extends Component {
         );
     }
 }
+
+AddProduct.propTypes = {
+    addProduct: PropTypes.func.isRequired
+};
+
 
 const style = {
     title: {
