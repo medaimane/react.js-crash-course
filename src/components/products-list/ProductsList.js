@@ -34,7 +34,10 @@ class ProductsList extends Component {
  * components
  */
 ProductsList.propTypes = {
-    products: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired,
+    addToCard: PropTypes.func.isRequired,
+    buyNow: PropTypes.func.isRequired,
+    removeProduct: PropTypes.func.isRequired
 };
 
 export default ProductsList;

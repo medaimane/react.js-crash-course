@@ -108,7 +108,10 @@ class ProductItem extends Component {
 }
 
 ProductItem.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    addToCard: PropTypes.func.isRequired,
+    buyNow: PropTypes.func.isRequired,
+    removeProduct: PropTypes.func.isRequired
 };
 
 /**
