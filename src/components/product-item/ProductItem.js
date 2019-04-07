@@ -62,7 +62,7 @@ class ProductItem extends Component {
                 </div>
                 <p style={styles.description}>{description}</p>
                 <div style={styles.details}>
-                    <p>Price: {price}</p>
+                    <p>Price: {price} €</p>
                     <p>Review: {review}</p>
                     <p style={this.getAvailableStyle(isAvailable)}>
                         {isAvailable ? 'Available' : 'Not Available'}

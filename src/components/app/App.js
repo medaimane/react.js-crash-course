@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import ProductsList from '../products-list/ProductsList';
 import Header from "../layouts/Header";
 import './App.css';
+import AddProduct from "../product-item/AddProduct";
 
 class App extends Component {
     state = {
@@ -10,7 +11,7 @@ class App extends Component {
             imageUrl: '',
             name: 'Product A',
             description: 'Product A description',
-            price: '92 €',
+            price: '92',
             review: '5',
             isAvailable: true,
             isAddedToCard: false,
@@ -20,7 +21,7 @@ class App extends Component {
             imageUrl: '',
             name: 'Product B',
             description: 'Product B description',
-            price: '30 €',
+            price: '30',
             review: '4',
             isAvailable: true,
             isAddedToCard: false,
@@ -30,7 +31,7 @@ class App extends Component {
             imageUrl: '',
             name: 'Product C',
             description: 'Product C description',
-            price: '50 €',
+            price: '50',
             review: '4',
             isAvailable: false,
             isAddedToCard: false,
@@ -40,7 +41,7 @@ class App extends Component {
             imageUrl: '',
             name: 'Product D',
             description: 'Product D description',
-            price: '73 €',
+            price: '73',
             review: '2',
             isAvailable: true,
             isAddedToCard: false,
@@ -50,7 +51,7 @@ class App extends Component {
             imageUrl: '',
             name: 'Product E',
             description: 'Product E description',
-            price: '49 €',
+            price: '49',
             review: '3',
             isAvailable: false,
             isAddedToCard: false,
@@ -86,10 +87,28 @@ class App extends Component {
 
     removeProduct = (id) => {
         this.setState({
-            products: this.state.products.filter(
+            products: [...this.state.products.filter(
                 product =>  product.id !== id
-            )
+            )]
         });
+    };
+
+    addProduct = ({name, description, price}) => {
+        this.setState({
+            products: [
+                ...this.state.products, {
+                    name,
+                    description,
+                    price,
+                    id: this.state.products.length + 1,
+                    review: '0',
+                    isAvailable: true,
+                    isAddedToCard: false,
+                    isBrought: false,
+                    imageUrl: '',
+                }
+            ]
+        })
     };
 
     /**
@@ -102,6 +121,8 @@ class App extends Component {
             <Fragment>
                 <Header />
                 <Fragment>
+                    <AddProduct addProduct={this.addProduct}/>
+                    <h2 className="products-title">Products list</h2>
                     <ProductsList
                         products={this.state.products}
                         addToCard={this.addToCard}
