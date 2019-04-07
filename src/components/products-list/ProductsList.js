@@ -6,7 +6,12 @@ class ProductsList extends Component {
     render() {
         return this.props.products.map(
             (product) => (
-                <ProductItem key={product.id} product={product}/>
+                <ProductItem
+                    key={product.id}
+                    product={product}
+                    addToCard={this.props.addToCard.bind(this)}
+                    buyNow={this.props.buyNow.bind(this)}
+                />
             ));
     }
 }

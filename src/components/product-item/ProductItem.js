@@ -8,22 +8,28 @@ class ProductItem extends Component {
      */
     getAvailableStyle = (isAvailable) => {
         return {
-            color:isAvailable ? 'green' : 'red'
+            color: isAvailable ? 'green' : 'red'
         };
     };
 
-    addToCard = (e) => {
-        const product = this.props.product;
-        alert(`${product.name} [code: ${product.id}] is added to your list.`)
-    };
-
-    buyNow = (e) => {
-        const product = this.props.product;
-        alert(`You brought the ${product.name} [code: ${product.id}].`)
-    };
-
     render() {
-        const product = this.props.product;
+        /**
+         * Object destruction
+         * to simplify access
+         * to all product proprieties
+         */
+        const {
+            id,
+            imageUrl,
+            name,
+            description,
+            price,
+            review,
+            isAvailable,
+            isAddedToCard,
+            isBrought
+        } = this.props.product;
+
         return (
             /**
              * Add Some inline Styling
@@ -39,33 +45,49 @@ class ProductItem extends Component {
                     fontSize: '20px',
                     textDecoration: 'none',
                     textAlign: 'center',
-                    backgroundImage: product.imageUrl
-                }}>{this.props.product.name}</h3>
-                <p style={styles.description}>{product.description}</p>
+                    backgroundImage: imageUrl
+                }}>{name}</h3>
+                <p style={styles.description}>{description}</p>
                 <div style={styles.details}>
-                    <p>Price: {product.price}</p>
-                    <p>Review: {product.review}</p>
-                    <p style={this.getAvailableStyle(product.isAvailable)}>{product.isAvailable ? 'Available' : 'Not Available'}</p>
+                    <p>Price: {price}</p>
+                    <p>Review: {review}</p>
+                    <p style={this.getAvailableStyle(isAvailable)}>
+                        {isAvailable ? 'Available' : 'Not Available'}
+                    </p>
+                    <p hidden={!isAvailable}>
+                        {isAddedToCard ? 'Added' : 'Not Added'}
+                    </p>
+                    <p hidden={!isAvailable}>
+                        {isBrought ? 'Brought' : 'Not Brought'}
+                    </p>
                 </div>
                 <div style={{
                     margin: '4px'
                 }}>
+                    {/**
+                     * Add Some button
+                     * with a click event
+                     */
+                     }
                     <button
                         style={{
                             backgroundColor: 'blue',
                             color: 'white',
                             margin: '2px'
                         }}
-                        onClick={this.addToCard}
-                    >Add to Card</button>
+                        hidden={!isAvailable}
+                        onClick={this.props.addToCard.bind(this, id)}
+                    >{isAddedToCard ? 'Remove From Card' : 'Add to Card'}</button>
+
                     <button
                         style={{
                             backgroundColor: 'orange',
                             color: 'blue',
                             margin: '2px'
                         }}
-                        onClick={this.buyNow}
-                    >Buy Now</button>
+                        hidden={!isAvailable}
+                        onClick={this.props.buyNow.bind(this, id)}
+                    >{isBrought ? 'Item Brought' : 'Buy Now'}</button>
                 </div>
             </div>
         )
