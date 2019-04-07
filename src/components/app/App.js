@@ -6,7 +6,6 @@ import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
-import uuid from 'uuid';
 import ProductsService from "../../sevices/ProductsService";
 import './App.css';
 
@@ -49,20 +48,15 @@ class App extends Component {
         });
     };
 
-    addProduct = ({name, description, price}) => {
+    addProduct = async ({name, description, price}) => {
         this.setState({
             products: [
-                ...this.state.products, {
+                ...this.state.products,
+                await ProductsService.addProduct({
                     name,
                     description,
-                    price,
-                    id: uuid.v4(),
-                    review: '0',
-                    isAvailable: true,
-                    isAddedToCard: false,
-                    isBrought: false,
-                    imageUrl: '',
-                }
+                    price
+                })
             ]
         })
     };

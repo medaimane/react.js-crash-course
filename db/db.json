@@ -54,6 +54,17 @@
       "isAvailable": false,
       "isAddedToCard": false,
       "isBrought": false
+    },
+    {
+      "name": "Product F",
+      "description": "Product F description",
+      "price": "199",
+      "review": "0",
+      "isAvailable": true,
+      "isAddedToCard": false,
+      "isBrought": false,
+      "imageUrl": "",
+      "id": 6
     }
   ]
 }
