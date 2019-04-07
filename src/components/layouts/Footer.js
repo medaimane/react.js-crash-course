@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer style={style.footer}>
             <div className="content has-text-centered">
-                <p style={{marginBottom: '0'}}>Sample react.js spa by
+                <p style={{marginBottom: '0'}}>Sample react.js spa crash course by
                     <a href="https://medaimane.github.io"
                        target="_blank"
                        rel="noopener noreferrer">medaimane</a>

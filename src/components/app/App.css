@@ -8,3 +8,33 @@ body {
     margin: 5px;
     padding: 5px;
 }
+
+/**
+ * Header component styles
+ */
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+}
+
+nav li {
+    margin: 5px;
+    padding: 3px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}

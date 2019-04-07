@@ -1,10 +1,13 @@
 import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import ProductsList from '../products-list/ProductsList';
-import Header from "../layouts/Header";
-import './App.css';
 import AddProduct from "../product-item/AddProduct";
-import uuid from 'uuid';
+import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
+import uuid from 'uuid';
+import './App.css';
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 class App extends Component {
     state = {
@@ -120,20 +123,27 @@ class App extends Component {
      */
     render() {
         return (
-            <Fragment>
-                <Header />
+            <Router>
                 <Fragment>
-                    <AddProduct addProduct={this.addProduct}/>
-                    <h2 className="products-title">Products list</h2>
-                    <ProductsList
-                        products={this.state.products}
-                        addToCard={this.addToCard}
-                        buyNow={this.buyNow}
-                        removeProduct={this.removeProduct}
-                    />
+                    <Header />
+                    <Route exact path="/" render={props => (
+                        <Fragment>
+                            <AddProduct addProduct={this.addProduct}/>
+                            <h2 className="products-title">Products list</h2>
+                            <ProductsList
+                                products={this.state.products}
+                                addToCard={this.addToCard}
+                                buyNow={this.buyNow}
+                                removeProduct={this.removeProduct}
+                            />
+                        </Fragment>
+                    )}>
+                    </Route>
+                    <Route path="/about" component={About} />
+                    <Route path="/contact" component={Contact} />
+                    <Footer />
                 </Fragment>
-                <Footer />
-            </Fragment>
+            </Router>
         );
     }
 }
