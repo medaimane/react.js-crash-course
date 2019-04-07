@@ -4,6 +4,7 @@ import Header from "../layouts/Header";
 import './App.css';
 import AddProduct from "../product-item/AddProduct";
 import uuid from 'uuid';
+import Footer from "../layouts/Footer";
 
 class App extends Component {
     state = {
@@ -131,6 +132,7 @@ class App extends Component {
                         removeProduct={this.removeProduct}
                     />
                 </Fragment>
+                <Footer />
             </Fragment>
         );
     }
