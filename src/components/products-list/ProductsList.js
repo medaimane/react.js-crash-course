@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import ProductItem from '../product-item/ProductItem';
 import PropTypes from 'prop-types';
 
@@ -6,13 +6,16 @@ class ProductsList extends Component {
     render() {
         return this.props.products.map(
             (product) => (
-                <ProductItem
-                    key={product.id}
-                    product={product}
-                    addToCard={this.props.addToCard.bind(this)}
-                    buyNow={this.props.buyNow.bind(this)}
-                    removeProduct={this.props.removeProduct.bind(this)}
-                />
+                <Fragment>
+                    <h2 style={style}>Products list</h2>
+                    <ProductItem
+                        key={product.id}
+                        product={product}
+                        addToCard={this.props.addToCard}
+                        buyNow={this.props.buyNow}
+                        removeProduct={this.props.removeProduct}
+                    />
+                </Fragment>
             ));
     }
 }
@@ -24,6 +27,11 @@ class ProductsList extends Component {
  */
 ProductsList.propTypes = {
     products: PropTypes.array.isRequired
+};
+
+const style = {
+    margin: '5px',
+    padding: '5px'
 };
 
 export default ProductsList;

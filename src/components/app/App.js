@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import ProductsList from '../products-list/ProductsList';
+import Header from "../layouts/Header";
+import './App.css';
 
 class App extends Component {
     state = {
@@ -97,20 +99,17 @@ class App extends Component {
      */
     render() {
         return (
-            <main>
-                <header>
-                    <h1>Welcome to the store</h1>
-                </header>
-                <div>
-                    <h2>Products list</h2>
+            <Fragment>
+                <Header />
+                <Fragment>
                     <ProductsList
                         products={this.state.products}
                         addToCard={this.addToCard}
                         buyNow={this.buyNow}
                         removeProduct={this.removeProduct}
                     />
-                </div>
-            </main>
+                </Fragment>
+            </Fragment>
         );
     }
 }
