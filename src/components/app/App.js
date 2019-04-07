@@ -4,64 +4,15 @@ import ProductsList from '../products-list/ProductsList';
 import AddProduct from "../product-item/AddProduct";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-import uuid from 'uuid';
-import './App.css';
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
+import uuid from 'uuid';
+import ProductsService from "../../sevices/ProductsService";
+import './App.css';
 
 class App extends Component {
     state = {
-        products: [{
-            id: uuid.v4(),
-            imageUrl: '',
-            name: 'Product A',
-            description: 'Product A description',
-            price: '92',
-            review: '5',
-            isAvailable: true,
-            isAddedToCard: false,
-            isBrought: false
-        }, {
-            id: uuid.v4(),
-            imageUrl: '',
-            name: 'Product B',
-            description: 'Product B description',
-            price: '30',
-            review: '4',
-            isAvailable: true,
-            isAddedToCard: false,
-            isBrought: false
-        }, {
-            id: uuid.v4(),
-            imageUrl: '',
-            name: 'Product C',
-            description: 'Product C description',
-            price: '50',
-            review: '4',
-            isAvailable: false,
-            isAddedToCard: false,
-            isBrought: false
-        }, {
-            id: uuid.v4(),
-            imageUrl: '',
-            name: 'Product D',
-            description: 'Product D description',
-            price: '73',
-            review: '2',
-            isAvailable: true,
-            isAddedToCard: false,
-            isBrought: false
-        }, {
-            id: uuid.v4(),
-            imageUrl: '',
-            name: 'Product E',
-            description: 'Product E description',
-            price: '49',
-            review: '3',
-            isAvailable: false,
-            isAddedToCard: false,
-            isBrought: false
-        }]
+        products: []
     };
 
     addToCard = (id) => {
@@ -115,6 +66,17 @@ class App extends Component {
             ]
         })
     };
+
+    /**
+     * Another react
+     * component lifecycle
+     * method
+     */
+    async componentDidMount() {
+        this.setState({
+            products: await ProductsService.getProducts()
+        });
+    }
 
     /**
      * The only required

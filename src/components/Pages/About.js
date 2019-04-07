@@ -20,6 +20,7 @@ function About() {
                     <li>Passing data between components using Props</li>
                     <li>Handle events</li>
                     <li>Using React router dom package</li>
+                    <li>Handle HTTP request</li>
                 </ul>
             </div>
         </div>
