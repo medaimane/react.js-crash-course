@@ -3,11 +3,12 @@ import ProductsList from '../products-list/ProductsList';
 import Header from "../layouts/Header";
 import './App.css';
 import AddProduct from "../product-item/AddProduct";
+import uuid from 'uuid';
 
 class App extends Component {
     state = {
         products: [{
-            id: 1,
+            id: uuid.v4(),
             imageUrl: '',
             name: 'Product A',
             description: 'Product A description',
@@ -17,7 +18,7 @@ class App extends Component {
             isAddedToCard: false,
             isBrought: false
         }, {
-            id: 2,
+            id: uuid.v4(),
             imageUrl: '',
             name: 'Product B',
             description: 'Product B description',
@@ -27,7 +28,7 @@ class App extends Component {
             isAddedToCard: false,
             isBrought: false
         }, {
-            id: 3,
+            id: uuid.v4(),
             imageUrl: '',
             name: 'Product C',
             description: 'Product C description',
@@ -37,7 +38,7 @@ class App extends Component {
             isAddedToCard: false,
             isBrought: false
         }, {
-            id: 4,
+            id: uuid.v4(),
             imageUrl: '',
             name: 'Product D',
             description: 'Product D description',
@@ -47,7 +48,7 @@ class App extends Component {
             isAddedToCard: false,
             isBrought: false
         }, {
-            id: 5,
+            id: uuid.v4(),
             imageUrl: '',
             name: 'Product E',
             description: 'Product E description',
@@ -100,7 +101,7 @@ class App extends Component {
                     name,
                     description,
                     price,
-                    id: this.state.products.length + 1,
+                    id: uuid.v4(),
                     review: '0',
                     isAvailable: true,
                     isAddedToCard: false,
